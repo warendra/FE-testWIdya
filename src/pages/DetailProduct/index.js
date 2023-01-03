@@ -36,6 +36,12 @@ export default function DetailProduct() {
   if (status === "update status product success") {
     navigate("/myproduct");
   }
+  function rupiah(number) {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  }
   return (
     <>
       <Navbar></Navbar>
@@ -63,7 +69,7 @@ export default function DetailProduct() {
                 {detailProduct.productName}
               </h6>
               <p style={{ fontSize: "12px" }}>{detailProduct.category}</p>
-              <p style={{ fontSize: "16px" }}>Rp {detailProduct.price}</p>
+              <p style={{ fontSize: "16px" }}>{rupiah(detailProduct.price)}</p>
 
               {!user ? (
                 <>
@@ -151,15 +157,6 @@ export default function DetailProduct() {
                 </>
               )}
             </div>
-            {/* <div className="card infoSeller">
-              <div className="row">
-                <div className="col-2">a</div>
-                <div className="col-10">
-                  <h6>{detailUser.name}</h6>
-                  <p>{detailUser.city}</p>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

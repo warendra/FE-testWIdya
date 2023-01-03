@@ -13,7 +13,7 @@ import {
 // Di Halaman Landing Page
 export const getAllProduct = () => async (dispatch) => {
   try {
-    const response = await axios.get("http://localhost:1500/product");
+    const response = await axios.get("https://be-testwidya-production.up.railway.app/product");
     const data = response.data;
     // console.log(data);
     dispatch({
@@ -40,7 +40,7 @@ export const getProductById = (id) => async (dispatch) => {
     //   }
     // );
 
-    const response = await axios.get(`http://localhost:1500/product/${id}`);
+    const response = await axios.get(`https://be-testwidya-production.up.railway.app/product/${id}`);
     // console.log(response.data);
     const data = response.data;
     dispatch({
@@ -72,7 +72,7 @@ export const updateProduct = (params) => async (dispatch) => {
     formdata.append("picture", params.file);
 
     const response = await axios.put(
-      `http://localhost:1500/product/${params.id}`,
+      `https://be-testwidya-production.up.railway.app/product/${params.id}`,
       formdata,
       config
     );
@@ -124,7 +124,7 @@ export const addProduct = (params) => async (dispatch) => {
       },
     };
     const response = await axios.post(
-      `http://localhost:1500/product`,
+      `https://be-testwidya-production.up.railway.app/product`,
       formdata,
       config
     );
@@ -161,13 +161,13 @@ export const addProduct = (params) => async (dispatch) => {
 
 export const getAllProductByIdSeller = () => async (dispatch) => {
   try {
-    // const response = await fetch(`http://localhost:1500/productbyseller`, {
+    // const response = await fetch(`https://be-testwidya-production.up.railway.app/productbyseller`, {
     //   method: "GET",
     //   headers: {
     //     Authorization: `Bearer ${localStorage.getItem("token")}`,
     //   },
     // });
-    const response = await axios.get("http://localhost:1500/productbyseller", {
+    const response = await axios.get("https://be-testwidya-production.up.railway.app/productbyseller", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -196,7 +196,7 @@ export const getAllProductByIdSeller = () => async (dispatch) => {
 
 export const deleteProduct = (id) => async (dispatch) => {
   try {
-    const response = await axios.delete(`http://localhost:1500/product/${id}`, {
+    const response = await axios.delete(`https://be-testwidya-production.up.railway.app/product/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -237,13 +237,13 @@ export const updateStatusProduct = (id) => async (dispatch) => {
     //     Authorization: `Bearer ${localStorage.getItem("token")}`,
     //   },
     // };
-    const response = await fetch(`http://localhost:1500/product/status/${id}`, {
+    const response = await fetch(`https://be-testwidya-production.up.railway.app/product/status/${id}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
-    // const response = await axios.put(`http://localhost:1500/product/status/7`, {
+    // const response = await axios.put(`https://be-testwidya-production.up.railway.app/product/status/7`, {
     //   headers: {
     //     Authorization: `Bearer ${localStorage.getItem("token")}`,
     //   },

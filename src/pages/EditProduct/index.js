@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import fi_plus from "../../images/fi_plus.png";
 import { Navbar } from "../../component";
-
+import CurrencyInput from "react-currency-input-field";
 export default function EditProduct() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ export default function EditProduct() {
       setPrice(detailProduct.price);
       setCategory(detailProduct.category);
       setDescription(detailProduct.description);
-      setFile(detailProduct.image);
+      // setFile(detailProduct.image);
     }
   }, [dispatch, id]);
   if (localStorage.getItem("token") === null) {
@@ -85,16 +85,18 @@ export default function EditProduct() {
               <label htmlFor="harga" className="form-label">
                 Harga Produk<span style={{ color: "red" }}>*</span>
               </label>
-              <input
-                type="number"
-                min="1"
-                step="any"
-                className="form-control"
+              <CurrencyInput
                 id="harga"
+                name="harga"
                 placeholder="Rp 0,00"
-                required
                 value={price}
-                onChange={(e) => setPrice(e.target.value)}
+                onValueChange={(value) => setPrice(value)}
+                prefix={"Rp"}
+                decimalSeparator=","
+                groupSeparator="."
+                className="form-control"
+                required
+                allowDecimals={false}
               />
             </div>
             <div className="mb-3">

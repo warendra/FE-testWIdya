@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Knowlegde test Widya Informasi Nusantara
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Deployment
 
-## Available Scripts
+- Front end = [https://fe-test-w-idya.vercel.app/](https://fe-test-w-idya.vercel.app/)
+- Back end = [https://be-testwidya-production.up.railway.app/](https://be-testwidya-production.up.railway.app/)
 
-In the project directory, you can run:
+## Source Code
 
-### `npm start`
+- Front end = [https://github.com/Wrendra57/FE-testWIdya](https://be-testwidya-production.up.railway.app/)
+- Back end = [https://github.com/Wrendra57/BE-testWidya](https://github.com/Wrendra57/BE-testWidya)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Endpoint
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Register
 
-### `npm test`
+```http
+  POST /auth/register
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+      Body = {name, email, password, gender}
 
-### `npm run build`
+- Login
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```http
+  POST /auth/login
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+      Body = {email, password}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Autentifikasi
 
-### `npm run eject`
+```http
+  GET /auth/me
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+      Authorization : Bearer Token
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Create Product
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```http
+  POST /product
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+      Request Body: {productName, category, price, description,file}
+      Authorization : Bearer Token
 
-## Learn More
+- GET Product
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```http
+  GET /product
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- GET Product By ID
 
-### Code Splitting
+```http
+  GET /product/:id
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- GET Product By ID User
 
-### Analyzing the Bundle Size
+```http
+  GET /productbyseller
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+      Authorization : Bearer Token
 
-### Making a Progressive Web App
+- UPDATE Product By ID
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```http
+  PUT /product/:id
+```
 
-### Advanced Configuration
+      Request Body : {productName, category, price, description}
+      Authorization : Bearer Token
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- UPDATE status Product By ID
 
-### Deployment
+```http
+  PUT /product/status/:id
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+      Authorization : Bearer Token
 
-### `npm run build` fails to minify
+- DELETE Product By ID
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```http
+  DELETE /product/:id
+```
+
+      Authorization : Bearer Token

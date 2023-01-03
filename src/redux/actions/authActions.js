@@ -11,7 +11,7 @@ import {
 export const regis = (data) => async (dispatch) => {
   try {
     const response = await axios.post(
-      "http://localhost:1500/auth/register",
+      "https://be-testwidya-production.up.railway.app/auth/register",
       data
     );
 
@@ -75,7 +75,7 @@ const authError = (error) => async (dispatch) => {
 export const login = (data) => async (dispatch) => {
   try {
 
-    const response = await axios.post("http://localhost:1500/auth/login", data);
+    const response = await axios.post("https://be-testwidya-production.up.railway.app/auth/login", data);
 
     const result = response.data;
 
@@ -117,7 +117,7 @@ export const login = (data) => async (dispatch) => {
 export const cekTokenExp = () => async (dispatch) => {
   try {
     
-    const response = await axios.get("http://localhost:1500/auth/me", {
+    const response = await axios.get("https://be-testwidya-production.up.railway.app/auth/me", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
